@@ -23,8 +23,7 @@ var app = new Vue({
       firebase.database().ref('chat-lists').push({
         name: this.user.displayName,
         email: this.user.email,
-        message: this.message,
-        image: this.user.photoURL
+        message: this.message
       });
       this.message = '';
     }
