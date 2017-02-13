@@ -16,6 +16,8 @@
       <div class="chat-title"> {{ title }} <h3> by {{ creator }} </h3></div>
 
       <div class="chat-input" v-if="signedIn">
+        <img :src="user.photoURL" class="col-md-1 img-responsive">
+        <br>
         <div class="col-md-8">
           <input type="text" class="form-control" placeholder="Input your message here..." v-model="message">
         </div>
