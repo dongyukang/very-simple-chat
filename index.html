@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Chat</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="app" class="container chat-container">
+      <div class="chat-title"> {{ title }} <h3> by {{ creator }} </h3></div>
+
+      <div class="chat-input" v-if="signedIn">
+        <div class="col-md-8">
+          <input type="text" class="form-control" placeholder="Input your message here..." v-model="message">
+        </div>
+        <button class="btn btn-primary" @click="sendMessage">Send</button>
+        <button class="btn btn-danger" @click="signOut">Sign Out</button>
+      </div>
+
+      <div class="chat-login" v-else>
+        <button class="btn btn-primary btn-lg" @click="signInWithGoogle">Sign In With Google to Join Chat</button>
+      </div>
+
+      <div class="container">
+        <div class="jumbotron">
+          <div class="row" v-for="list in chatLists">
+            <span class="col-md-3 email">{{ list.email }}</span><span class="col-md-9 message">{{list.message}}</span>
+          </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAu8KnVjRdCoQ6A6fMEtZ4CYDMKEHyIuXg",
+        authDomain: "chatroom-45f4b.firebaseapp.com",
+        databaseURL: "https://chatroom-45f4b.firebaseio.com",
+        storageBucket: "chatroom-45f4b.appspot.com",
+        messagingSenderId: "313048404470"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
