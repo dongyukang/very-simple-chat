@@ -1,7 +1,7 @@
 # very-simple-chat
 Very simple chat app using Vue.js + Firebase
 
-# Somethings to try
+# Things to try
   - [ ] Private Chat
   - [ ] Various Topics
 

@@ -1,6 +1,8 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    "chat-lists": {
+      ".read": true,
+      ".write": "auth != null"
+    }
   }
 }
